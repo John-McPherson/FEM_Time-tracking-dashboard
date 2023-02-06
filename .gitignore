@@ -1,0 +1,11 @@
+_assets/
+.vscode/
+*.pdf
+*.zip
+*.ai
+*.idml
+*.indd
+*.idlk
+*.eps
+.DS_Store
+design/
