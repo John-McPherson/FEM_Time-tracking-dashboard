@@ -1,5 +1,280 @@
 @import "normalize.css";
 body {
+  width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 2vh 0;
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
+  background-color: #0e1323;
+}
+body * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body main {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+body main .grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 1em;
+}
+body main .timetracker {
+  padding: 2.5%;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+body main .timetracker__sidebar {
+  border-radius: 1em;
+}
+@media screen and (max-width: 826px) {
+  body main .timetracker__sidebar {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(173.33px, 1fr));
+  }
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+body main .timetracker__sidebar__profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  min-height: 325px;
+  background-color: hsl(246, 80%, 60%);
+  border-radius: 1em;
+  padding: 35px;
+  -ms-flex-preferred-size: 1;
+      flex-basis: 1;
+  position: relative;
+}
+@media screen and (max-width: 826px) {
+  body main .timetracker__sidebar__profile {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+    min-height: unset;
+  }
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar__profile {
+    -ms-grid-column-span: 1;
+    grid-column: span 1;
+  }
+}
+body main .timetracker__sidebar__profile:after {
+  content: "";
+  position: absolute;
+  background-color: #1d204b;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: -1;
+}
+@media screen and (max-width: 826px) {
+  body main .timetracker__sidebar__profile:after {
+    left: 15px;
+    height: 100%;
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar__profile:after {
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+  }
+}
+body main .timetracker__sidebar__profile__img > img {
+  border: white solid 3px;
+  border-radius: 50%;
+  max-width: 90px;
+  height: 90px;
+  margin-right: 20px;
+}
+body main .timetracker__sidebar__profile__text {
+  color: white;
+}
+body main .timetracker__sidebar__profile__text h2 {
+  font-size: 1em;
+  color: #7679ba;
+}
+body main .timetracker__sidebar__profile__text h1 {
+  font-weight: 300;
+  font-size: 3em;
+}
+body main .timetracker__sidebar__selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  background-color: #1d204b;
+  border-radius: 1em;
+}
+body main .timetracker__sidebar__selector .selection--active {
+  color: white;
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar__selector {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 35px;
+    font-size: 1.25em;
+  }
+}
+body main .timetracker__sidebar__selector button {
+  color: #7679ba;
+  text-align: left;
+  background: unset;
+  border: unset;
+  padding: 35px 35px 0 35px;
+  margin: 0;
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar__selector button {
+    padding: unset;
+  }
+}
+body main .timetracker__sidebar__selector button:last-child {
+  padding: 35px;
+}
+@media screen and (max-width: 544px) {
+  body main .timetracker__sidebar__selector button:last-child {
+    padding: unset;
+  }
+}
+@media screen and (max-width: 826px) {
+  body main .timetracker__sidebar {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+  }
+}
+body main .timetracker__cards {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  -ms-grid-column-span: 3;
+  grid-column: span 3;
+}
+@media screen and (max-width: 1104px) {
+  body main .timetracker__cards {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+  }
+}
+body main .timetracker__card {
+  background-color: aquamarine;
+  padding: 7.5% 5%;
+  color: white;
+  border-radius: 1em;
+  background-color: #1d204b;
+  margin-top: 45px;
+  position: relative;
+}
+body main .timetracker__card:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  margin-top: -47px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 1em 1em 0 0;
+  z-index: -1;
+  background-position: 95% -5%;
+  background-repeat: no-repeat;
+}
+body main .timetracker__card.work:before {
+  background-color: hsl(15, 100%, 70%);
+  background-image: url("../images/icon-work.svg");
+}
+body main .timetracker__card.play:before {
+  background-color: hsl(195, 74%, 62%);
+  background-image: url("../images/icon-play.svg");
+}
+body main .timetracker__card.study:before {
+  background-color: hsl(348, 100%, 68%);
+  background-image: url("../images/icon-study.svg");
+}
+body main .timetracker__card.exercise:before {
+  background-color: hsl(145, 58%, 55%);
+  background-image: url("../images/icon-exercise.svg");
+  background-position: 95% 0%;
+}
+body main .timetracker__card.social:before {
+  background-color: hsl(264, 64%, 52%);
+  background-image: url("../images/icon-social.svg");
+  background-position: 95% -10%;
+}
+body main .timetracker__card.self-care:before {
+  background-color: hsl(43, 84%, 65%);
+  background-image: url("../images/icon-self-care.svg");
+}
+body main .timetracker__card h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1em;
+}
+body main .timetracker__card h3 {
+  padding: 2rem 0;
+  font-size: 3.5em;
+  font-weight: 300;
+}
+body main .timetracker__card p {
+  color: #7679ba;
+}
+.attribution {
+  color: white;
+}
+.attribution a {
+  color: hsl(236, 100%, 87%);
+}
+.attribution a:visited {
+  color: #7679ba;
 }

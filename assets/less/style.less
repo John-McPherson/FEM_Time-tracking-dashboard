@@ -2,6 +2,286 @@
 @import "mixins";
 
 body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2vh 0;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     font-family: @bodyFont;
     font-weight: @regular;
+    background-color: @veryDarkBlue;
+
+    main {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .grid {
+            display: grid;
+            gap: 1em;
+
+
+        }
+
+        .timetracker {
+            padding: 2.5%;
+            width: 100%;
+            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            &__sidebar {
+                border-radius: 1em;
+
+                @media screen and (max-width: 826px) {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(173.33px, 1fr));
+                }
+
+                @media screen and (max-width: 544px) {
+                    grid-template-columns: 1fr;
+                }
+
+                &__profile {
+                    display: flex;
+                    flex-flow: row wrap;
+                    min-height: 325px;
+
+                    background-color: @blue ;
+                    border-radius: 1em;
+                    padding: 35px;
+                    flex-basis: 1;
+                    position: relative;
+
+                    @media screen and (max-width: 826px) {
+                        grid-column: span 2;
+                        min-height: unset;
+                    }
+
+                    @media screen and (max-width: 544px) {
+                        grid-column: span 1;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        background-color: @darkBlue;
+                        bottom: -15px;
+                        left: 0;
+                        width: 100%;
+                        height: 50px;
+                        z-index: -1;
+
+                        @media screen and (max-width: 826px) {
+                            left: 15px;
+                            height: 100%;
+                            bottom: 0;
+                        }
+
+                        @media screen and (max-width: 544px) {
+                            bottom: -15px;
+                            left: 0;
+                            width: 100%;
+                            height: 50px;
+                        }
+                    }
+
+                    &__img {
+                        >img {
+                            border: white solid 3px;
+                            border-radius: 50%;
+                            max-width: 90px;
+                            height: 90px;
+                            margin-right: 20px;
+                        }
+
+                    }
+
+                    &__text {
+                        color: white;
+
+                        h2 {
+                            font-size: 1em;
+                            color: @desatBlue;
+                        }
+
+                        h1 {
+                            // padding-top: .5em;
+                            font-weight: 300;
+                            font-size: 3em;
+                        }
+                    }
+                }
+
+                &__selector {
+                    display: flex;
+                    flex-flow: column;
+                    background-color: @darkBlue;
+                    border-radius: 1em;
+
+
+                    .selection--active {
+                        color: white;
+                    }
+
+                    @media screen and (max-width: 544px) {
+                        flex-flow: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        padding: 35px;
+                        font-size: 1.25em;
+                    }
+
+                    button {
+                        color: @desatBlue;
+                        text-align: left;
+                        background: unset;
+                        border: unset;
+                        padding: 35px 35px 0 35px;
+                        margin: 0;
+
+                        @media screen and (max-width: 544px) {
+                            padding: unset;
+                        }
+
+                        &:last-child {
+                            padding: 35px;
+
+                            @media screen and (max-width: 544px) {
+                                padding: unset;
+                            }
+
+                        }
+                    }
+                }
+
+
+
+                @media screen and (max-width: 826px) {
+                    grid-column: span 2;
+                }
+            }
+
+            &__cards {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-column: span 3;
+
+                @media screen and (max-width: 1104px) {
+                    grid-column: span 2;
+                }
+            }
+
+            &__card {
+                background-color: aquamarine;
+                padding: 7.5% 5%;
+                color: white;
+                border-radius: 1em;
+                background-color: @darkBlue;
+                margin-top: 45px;
+                position: relative;
+                // z-index: 2;
+
+
+                &:before {
+                    content: '';
+                    height: 100%;
+                    width: 100%;
+                    margin-top: -47px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    border-radius: 1em 1em 0 0;
+                    z-index: -1;
+                    background-position: 95% -5%;
+                    background-repeat: no-repeat;
+
+
+                }
+
+                &.work {
+                    &:before {
+                        background-color: @work;
+                        background-image: url("../images/icon-work.svg");
+                    }
+                }
+
+                &.play {
+                    &:before {
+                        background-color: @play;
+                        background-image: url("../images/icon-play.svg");
+                    }
+                }
+
+                &.study {
+                    &:before {
+                        background-color: @study;
+                        background-image: url("../images/icon-study.svg");
+                    }
+                }
+
+                &.exercise {
+                    &:before {
+                        background-color: @exercise;
+                        background-image: url("../images/icon-exercise.svg");
+                        background-position: 95% 0%;
+                    }
+                }
+
+                &.social {
+                    &:before {
+                        background-color: @social;
+                        background-image: url("../images/icon-social.svg");
+                        background-position: 95% -10%;
+                    }
+                }
+
+                &.self-care {
+                    &:before {
+                        background-color: @selfCare;
+                        background-image: url("../images/icon-self-care.svg");
+                    }
+                }
+
+
+                h2 {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 1em;
+                }
+
+                h3 {
+                    padding: 2rem 0;
+                    font-size: 3.5em;
+                    font-weight: 300;
+                }
+
+                p {
+                    color: @desatBlue;
+                }
+            }
+        }
+    }
+}
+
+.attribution {
+    color: white;
+
+    a {
+        color: @paleBlue;
+
+        &:visited {
+            color: @desatBlue;
+
+        }
+    }
 }
