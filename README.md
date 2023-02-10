@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![screenshot of webstie](.assets/images/screenshot.jpg)
+![screenshot of webstie](/assets/images/screenshot.png)
 
 ### Links
 
